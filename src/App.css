@@ -28,8 +28,32 @@
   color: #61dafb;
 }
 
-.txt-lg {
+.txt-hg {
   font-size: 48px;
+}
+
+.txt-lg {
+  font-size: 24px;
+}
+
+.txt-md {
+  font-size: 18px;
+}
+
+.txt-sm {
+  font-size: 14px;
+}
+
+.txt-ty {
+  font-size: 12px;
+}
+
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-cabin {
+  font-family: 'Cabin', sans-serif;
 }
 
 @keyframes App-logo-spin {
