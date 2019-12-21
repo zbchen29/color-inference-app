@@ -18,7 +18,7 @@ class BarPlot extends Component {
 
         rows.push(<div className="text-center txt-md font-cabin pb-3">{this.props.children}</div>);
         if (this.props.side === "left") {
-            for (var i=0; i<colorsLeft.length; i++) {
+            for (let i=0; i<colorsLeft.length; i++) {
                 rows.push(
                     <div className="row">
                         <div className="col-4 txt-ty text-right font-cabin overflow-hidden text-truncate pr-1">{colorsLeft[i]}</div>
@@ -28,7 +28,7 @@ class BarPlot extends Component {
             }
         }
         else {
-            for (var i=0; i<colorsRight.length; i++) {
+            for (let i=0; i<colorsRight.length; i++) {
                 rows.push(
                     <div className="row">
                         <div className="col pr-1"><div className="ml-auto" style={{height:"90%", width:(valuesRight[i]*100).toString() + "%", backgroundColor:colorsRight[i].replace(/\s/g,"")}}></div></div>
