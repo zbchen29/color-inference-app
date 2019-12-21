@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import InferBox from './InferBox';
 import InferBackground from './InferBackground.js';
 import radius from './radius.json';
-import probabilities from './probabilities.json';
+import priors from './priors.json';
 
 class Home extends Component {
     constructor(props) {
@@ -44,23 +44,23 @@ class Home extends Component {
     }
 
     prior(color) {
-        return probabilities[color];
+        return priors[color];
     }
 
     infer(rgb, n) {
-        rgb = [rgb.r,rgb.b,rgb.g]
-
+        rgb = [rgb.r,rgb.g,rgb.b]
         let evidence_probability = 0;
+
         for (const [color, data] of Object.entries(radius)) {
             let mean = data['mean'];
-            let sigma = data['radius'];
+            let sigma = 12 * data['radius'];
             evidence_probability = evidence_probability + this.likelihood(rgb, mean, sigma) * this.prior(color);
         }
-        
+
         let probabilities = {}
         for (const [color, data] of Object.entries(radius)) {
             let mean = data['mean'];
-            let sigma = data['radius'];
+            let sigma = 12 * data['radius'];
             probabilities[color] = this.likelihood(rgb, mean, sigma) * this.prior(color) / evidence_probability;
         }
 
