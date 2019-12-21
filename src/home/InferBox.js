@@ -10,8 +10,8 @@ class InferBox extends Component {
             <div className="infer-box rounded-lg">
                 <ChromePicker className="w-100 force-sans" disableAlpha={true} onChange={this.props.onChange} color={this.props.color}/>
                 <div className="d-flex flex-row">
-                    <BarPlot side="left">Bayesian Prediction</BarPlot>
-                    <BarPlot side="right">Nearest Neighbor</BarPlot>
+                    <BarPlot side="left" names={this.props.inferred.map(x => x[0])} values={this.props.inferred.map(x => x[1])}>Bayesian Prediction</BarPlot>
+                    <BarPlot side="right" names={this.props.inferred.map(x => x[0])} values={this.props.inferred.map(x => x[1])}>Nearest Neighbor</BarPlot>
                 </div>
             </div>
         )

@@ -13,7 +13,7 @@ class InferBackground extends Component {
 
     createBackground() {
         // Not ETU
-        return colors.map(color => <div className={"col-6 txt-hg font-nunito text-white background-section " + (colors.indexOf(color)%2 === 0 ? "text-left pl-4" : "text-right pr-4")} style={{"background-color":color.replace(/\s/g,"")}}>{color}</div>);
+        return colors.map(color => <div className={"col-6 txt-hg font-nunito text-white background-section " + (colors.indexOf(color)%2 === 0 ? "text-left pl-4" : "text-right pr-4")} style={{"backgroundColor":color.replace(/\s/g,"")}}>{color}</div>);
     }
 
     render() {
