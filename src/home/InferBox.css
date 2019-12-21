@@ -2,8 +2,7 @@
     position: absolute;
     background-color: white;
     box-shadow: dimgray 0px 0px 10px;
-    width: 25vw;
-    height: 60vh;
+    width: 35vw;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);

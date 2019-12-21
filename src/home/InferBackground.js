@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // CSS
 import './InferBackground.css'
 
-let colors = ["blue", "violet", "purple", "indigo", "medium orchid", "slate blue", "dark violet", "white"]
+let colors = ["blue", "violet", "purple", "indigo", "medium orchid", "slate blue", "dark violet", "light blue"]
 
 class InferBackground extends Component {
     constructor(props) {
