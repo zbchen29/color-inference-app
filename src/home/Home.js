@@ -10,32 +10,36 @@ class Home extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            color: {
-                hex:'#333',
-                rgb: {
-                    r:51,
-                    g:51,
-                    b:51
-                },
-                hsl: {
-                    h:0,
-                    s:0,
-                    l:0.2
-                }
-            },
-            inferred: [],
-        }
-
         this.handleChange = this.handleChange.bind(this);
         this.likelihood = this.likelihood.bind(this);
         this.prior = this.prior.bind(this);
         this.infer = this.infer.bind(this);
+        this.nearest = this.nearest.bind(this);
+
+        this.state = {
+            color: {
+                hex:'#8C0D07',
+                rgb: {
+                    r:140,
+                    g:13,
+                    b:7
+                },
+                hsl: {
+                    h:3,
+                    s:90,
+                    l:29
+                }
+            },
+            inferred: this.infer({r:140, g:13, b:7},4),
+            nearest: this.nearest({r:140, g:13, b:7},4)
+        }
     }
 
     handleChange(color, event) {
+        console.log("HI");
         this.setState({color: color});
-        this.setState({inferred: this.infer(this.state.color.rgb,4)});
+        this.setState({inferred: this.infer(color.rgb,4)});
+        this.setState({nearest: this.nearest(color.rgb,4)});
     }
 
     likelihood(rgb, mean, sigma) {
@@ -48,7 +52,7 @@ class Home extends Component {
     }
 
     infer(rgb, n) {
-        rgb = [rgb.r,rgb.g,rgb.b]
+        rgb = [rgb.r,rgb.g,rgb.b];
         let evidence_probability = 0;
 
         for (const [color, data] of Object.entries(radius)) {
@@ -71,14 +75,33 @@ class Home extends Component {
             return (keyA < keyB) ? -1 : (keyA > keyB ? 1 : 0);
         })
 
-        return colors.slice(-n);
+        return colors.slice(-n).reverse();
+    }
+
+    nearest(rgb, n) {
+        rgb = [rgb.r,rgb.g,rgb.b];
+
+        let squaredDistances = {}
+        for (const [color, data] of Object.entries(radius)) {
+            let point = data['mean'];
+            squaredDistances[color] = Math.pow(rgb[0]-point[0],2) + Math.pow(rgb[1]-point[1],2) + Math.pow(rgb[2]-point[2],2);
+        }
+
+        let colors = Object.entries(squaredDistances);
+        colors.sort((a,b) => {
+            let keyA = a[1];
+            let keyB = b[1];
+            return (keyA < keyB) ? -1 : (keyA > keyB ? 1 : 0);
+        });
+
+        return colors.slice(0,n).map(x => [x[0], Math.sqrt(x[1])]);
     }
 
     render() {
         return (
             <div>
-                <InferBackground inferred={this.state.inferred}/>
-                <InferBox onChange={this.handleChange} color={this.state.color} inferred={this.state.inferred}/>
+                <InferBackground inferred={this.state.inferred} nearest={this.state.nearest}/>
+                <InferBox onChange={this.handleChange} color={this.state.color} inferred={this.state.inferred} nearest={this.state.nearest}/>
             </div>
         )
     }
