@@ -1,13 +1,16 @@
 .infer-box {
     position: absolute;
     background-color: white;
-    box-shadow: dimgray 0px 0px 10px;
     width: 35vw;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
     user-select: none;
+}
+
+.color-band {
+    height: 30px;
 }
 
 .force-sans{

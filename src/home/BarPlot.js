@@ -53,7 +53,7 @@ class BarPlot extends Component {
 
     render() {
         return (
-            <div className="container txt-sm p-3 border border-secondary">
+            <div className="container txt-sm p-3">
                 { this.createBars() }
             </div>
         )

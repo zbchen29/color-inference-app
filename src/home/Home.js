@@ -26,8 +26,8 @@ class Home extends Component {
                 },
                 hsl: {
                     h:3,
-                    s:90,
-                    l:29
+                    s:0.9,
+                    l:0.29
                 }
             },
             inferred: this.infer({r:140, g:13, b:7},4),
@@ -101,7 +101,7 @@ class Home extends Component {
         return (
             <div>
                 <InferBackground inferred={this.state.inferred} nearest={this.state.nearest}/>
-                <InferBox onChange={this.handleChange} color={this.state.color} inferred={this.state.inferred} nearest={this.state.nearest}/>
+                <InferBox onChange={this.handleChange} color={this.state.color.hsl} inferred={this.state.inferred} nearest={this.state.nearest}/>
             </div>
         )
     }
