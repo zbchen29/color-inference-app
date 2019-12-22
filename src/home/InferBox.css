@@ -1,6 +1,10 @@
 .infer-box {
-    position: absolute;
     background-color: white;
+    width: 95%;
+}
+
+.infer-container {
+    position: absolute;
     width: 35vw;
     left: 50%;
     top: 50%;
@@ -11,6 +15,10 @@
 
 .color-band {
     height: 30px;
+}
+
+.color-beam {
+    width: 2.5%;
 }
 
 .force-sans{

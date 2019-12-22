@@ -18,9 +18,9 @@ class InferBackground extends Component {
 
         for (let i=0; i<this.props.inferred.length; i++) {
             let inferredColor = "rgb(" + colorData[this.props.inferred[i][0]]["mean"][0] + "," +  colorData[this.props.inferred[i][0]]["mean"][1] + "," +  colorData[this.props.inferred[i][0]]["mean"][2] + ")";
-            sections.push(<div className="col-6 txt-hg font-nunito text-white background-section text-left pl-4" style={{backgroundColor:inferredColor}}>{this.props.inferred[i][0]}</div>);
+            sections.push(<div key={"inferred-" + i} className="col-6 txt-hg font-nunito text-white background-section text-left pl-4" style={{backgroundColor:inferredColor}}>{this.props.inferred[i][0]}</div>);
             let nearestColor = "rgb(" + colorData[this.props.nearest[i][0]]["mean"][0] + "," +  colorData[this.props.nearest[i][0]]["mean"][1] + "," +  colorData[this.props.nearest[i][0]]["mean"][2] + ")";
-            sections.push(<div className="col-6 txt-hg font-nunito text-white background-section text-right pr-4" style={{backgroundColor:nearestColor}}>{this.props.nearest[i][0]}</div>);
+            sections.push(<div key={"nearest-" + i} className="col-6 txt-hg font-nunito text-white background-section text-right pr-4" style={{backgroundColor:nearestColor}}>{this.props.nearest[i][0]}</div>);
         }
 
         return sections;

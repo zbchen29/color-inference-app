@@ -36,7 +36,6 @@ class Home extends Component {
     }
 
     handleChange(color, event) {
-        console.log("HI");
         this.setState({color: color});
         this.setState({inferred: this.infer(color.rgb,4)});
         this.setState({nearest: this.nearest(color.rgb,4)});
