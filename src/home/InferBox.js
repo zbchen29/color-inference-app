@@ -10,7 +10,7 @@ class InferBox extends Component {
             <div className="d-flex flex-row infer-container shadow-lg bg-transparent overflow-hidden">
                 <div className="color-beam rounded-left" style={{backgroundColor:"hsl(" + this.props.color.h + "," + this.props.color.s*100 + "%," + this.props.color.l*100 + "%)"}}></div>
                 <div className="infer-box">
-                    <ChromePicker className="w-100 force-sans shadow-none" disableAlpha={true} onChange={this.props.onChange} color={this.props.color}/>
+                    <ChromePicker className="w-100 force-sans shadow-none disable-touch-scroll" disableAlpha={true} onChange={this.props.onChange} color={this.props.color}/>
                     <div className="color-band" style={{backgroundColor:"hsl(" + this.props.color.h + "," + this.props.color.s*100 + "%," + this.props.color.l*100 + "%)"}}></div>
 
                     <div className="d-flex flex-row">
