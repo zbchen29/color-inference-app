@@ -20,7 +20,7 @@ class BarPlot extends Component {
         let values = this.props.values;
         let maxValue = Math.max(...values);
 
-        rows.push(<div key="title" className="text-center txt-md font-cabin pb-3">{this.props.children}</div>);
+        rows.push(<div key="title" className="text-center txt-sm font-cabin pb-3">{this.props.children}</div>);
         if (this.props.side === "left") {
             for (let i=0; i<colors.length; i++) {
                 let height = "90%";

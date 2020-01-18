@@ -28,3 +28,15 @@
 .sans-font {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+@media (max-width: 960px) {
+    .infer-container {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 640px) {
+    .infer-container {
+        width: 95vw;
+    }
+}

@@ -5,3 +5,8 @@
     user-select: none;
     text-shadow: 0 0 5px dimgray;
 }
+
+.background-sticky {
+    position: fixed;
+    top: 0px;
+}

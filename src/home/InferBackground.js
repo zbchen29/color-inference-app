@@ -30,7 +30,7 @@ class InferBackground extends Component {
 
     render() {
         return (
-            <div className="d-flex flex-wrap">
+            <div className="d-flex flex-wrap background-sticky">
                 { this.createBackground() }
             </div>
         )
